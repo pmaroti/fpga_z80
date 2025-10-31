@@ -43,8 +43,6 @@ always @(posedge clk) begin
     end
 end
 
-
-
 z80 z80 (
         .clk     (clk),
         .cen     (VCC),
@@ -72,39 +70,6 @@ always @(posedge clk) begin
         leds <= uio_out;
     end
 end
-
-/*
-always @(posedge clk) begin
-    is_read <= rd_n;
-    case(addr_bus[2:0])
-        8'h00: begin
-            data_in <= 8'h3E;
-        end
-        8'h01: begin
-            data_in <= 8'h00;
-        end
-        8'h02: begin
-            data_in <= 8'h3C;
-        end
-        8'h03: begin
-            data_in <= 8'hD3;
-        end
-        8'h04: begin
-            data_in <= 8'h22;
-        end
-        8'h05: begin
-            data_in <= 8'hC3;
-        end
-        8'h06: begin
-            data_in <= 8'h02;
-        end
-        8'h07: begin
-            data_in <= 8'h00;
-        end
-    endcase
-end
-assign uio_in = rd_n ? 8'bzzzz_zzzz : data_in;
-*/
 
 wire [7:0] rom_dout;
 wire rom_ce;
